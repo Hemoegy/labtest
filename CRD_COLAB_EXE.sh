@@ -20,7 +20,7 @@ printf """$c$b
     | |    / _ \| |/ _\` | '_ \    |  __  |/ _\` |/ __| |/ / __|
     | |___| (_) | | (_| | |_) |   | |  | | (_| | (__|   <\__ \\
      \_____\___/|_|\__,_|_.__/    |_|  |_|\__,_|\___|_|\_\___/ 
-    $r  By Pradyumna Krishna © 2020 $c Edited by https://fb.com/thuong.hai.581 (v3)
+    $r  By Pradyumna Krishna © 2020 $c Edited by https://fb.com/thuong.hai.581 (v4)
       Github : https://github.com/PradyumnaKrishna/Colab-Hacks          
 $endc$enda""";
 
