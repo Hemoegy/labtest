@@ -1,5 +1,5 @@
 windows_container:
-  image: cirrusci/windowsservercore:2019
+  image: cirrusci/windowsserver:2019
   cpu: 44
   memory: 10G
 
