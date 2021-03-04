@@ -1,4 +1,4 @@
-windows_container:
+windows:
   cpu: 30
   memory: 24G
 
