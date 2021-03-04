@@ -3,4 +3,4 @@ windows_container:
   memory: 24G
 
 task:
-  script: dxdiag
+  script: echo dfkuafufukhkukahfhfds
