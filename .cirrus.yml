@@ -3,4 +3,4 @@ windows_container:
   memory: 24G
 
 task:
-  script: echo dfkuafufukhkukahfhfds
+  script: echo test
