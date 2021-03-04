@@ -1,7 +1,6 @@
 windows_container:
-  image: cirrusci/windowsserver:2019
-  cpu: 44
-  memory: 44G
+  cpu: 30
+  memory: 24G
 
 task:
   script: dxdiag
