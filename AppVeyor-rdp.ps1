@@ -1,5 +1,3 @@
-Set-Variable -Name "passwd" -Value "Password@64"
-Set-LocalUser -Name "Administrator" -Password (ConvertTo-SecureString -AsPlainText "$passwd" -Force)
 function ChangePassword($password) {
   $objUser = [ADSI]("WinNT://$($env:computername)/appveyor")
   $objUser.SetPassword($password)
@@ -16,6 +14,10 @@ if((Test-Path variable:islinux) -and $isLinux) {
   Write-Warning "RDP access is not supported on Linux. Please use SSH (https://www.appveyor.com/docs/how-to/ssh-to-build-worker/)."
   return
 }
+
+#Change Windows Password 
+Set-Variable -Name "passwd" -Value "Password@64"
+Set-LocalUser -Name "Administrator" -Password (ConvertTo-SecureString -AsPlainText "$passwd" -Force)
 
 # get current IP
 $ip = (Get-NetIPAddress -AddressFamily IPv4 | Where-Object {$_.InterfaceAlias -like 'ethernet*'}).IPAddress
