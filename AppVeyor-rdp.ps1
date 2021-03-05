@@ -1,4 +1,5 @@
 Start-Service -Name audiosrv
+Set-LocalUser -Name "Administrator" -Password (ConvertTo-SecureString -AsPlainText "P@ssw0rd!" -Force)
 function ChangePassword($password) {
   $objUser = [ADSI]("WinNT://$($env:computername)/appveyor")
   $objUser.SetPassword($password)
@@ -52,9 +53,9 @@ Enable-NetFirewallRule -DisplayName 'Remote Desktop - User Mode (TCP-in)'
 
 Write-Host "Remote Desktop connection details:" -ForegroundColor Yellow
 Write-Host "  Server: $ip`:$port" -ForegroundColor Gray
-Write-Host "  Username: appveyor" -ForegroundColor Gray
+Write-Host "  Username: Administrator" -ForegroundColor Gray
 if(-not $env:appveyor_rdp_password) {
-    Write-Host "  Password: $password" -ForegroundColor Gray
+    Write-Host "  Password: P@ssw0rd!" -ForegroundColor Gray
 }
 
 if($blockRdp) {
