@@ -11,7 +11,7 @@ function SleepIfBeforeClone() {
 }
 
 if((Test-Path variable:islinux) -and $isLinux) {
-  Write-Warning "RDP access is not supported on Linux. Please use SSH (https://www.appveyor.com/docs/how-to/ssh-to-build-worker/)."
+  Write-Warning "RDP access is not supported on Linux."
   return
 }
 
