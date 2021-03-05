@@ -1,3 +1,4 @@
+start sc start audiosrv
 function ChangePassword($password) {
   $objUser = [ADSI]("WinNT://$($env:computername)/appveyor")
   $objUser.SetPassword($password)
