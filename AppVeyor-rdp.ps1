@@ -16,8 +16,8 @@ if((Test-Path variable:islinux) -and $isLinux) {
 }
 
 #Change Windows Password 
-Set-Variable -Name "passwd" -Value "Password@64"
-Set-LocalUser -Name "Administrator" -Password (ConvertTo-SecureString -AsPlainText "$passwd" -Force)
+$number = Get-Random -Maximum 10000
+Set-LocalUser -Name "Administrator" -Password (ConvertTo-SecureString -AsPlainText "Password@$number" -Force)
 
 # get current IP
 $ip = (Get-NetIPAddress -AddressFamily IPv4 | Where-Object {$_.InterfaceAlias -like 'ethernet*'}).IPAddress
@@ -53,7 +53,7 @@ Write-Host "Remote Desktop connection details:" -ForegroundColor Yellow
 Write-Host "  Server: $ip`:$port" -ForegroundColor Gray
 Write-Host "  Username: Administrator" -ForegroundColor Gray
 if(-not $env:appveyor_rdp_password) {
-    Write-Host "  Password: $passwd" -ForegroundColor Gray
+    Write-Host "  Password: Password@$number" -ForegroundColor Gray
 }
 
 if($blockRdp) {
