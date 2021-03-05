@@ -42,7 +42,7 @@ Write-Host "  Change Windows Server Version go to Settings > environment > Build
 Write-Host "  Visual Studio 2013/2015 = Windows Server 2012 R2" -ForegroundColor White
 Write-Host "  Visual Studio 2017 = Windows Server 2016" -ForegroundColor White
 Write-Host "  Visual Studio 2019 = Windows Server 2019" -ForegroundColor White
-Write-Host "  This VPS vaild for 1h, RE-BUILD COMMIT to get new one" -ForegroundColor White
+Write-Host "  This VPS valid for 1h, RE-BUILD COMMIT to get new one" -ForegroundColor White
 Write-Host "Remote Desktop connection details:" -ForegroundColor Yellow
 Write-Host "  Server: $ip`:$port" -ForegroundColor Gray
 Write-Host "  Username: Administrator" -ForegroundColor Gray
