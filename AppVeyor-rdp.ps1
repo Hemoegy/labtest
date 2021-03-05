@@ -23,7 +23,7 @@ $port = 3389
 $password = 'Thuonghai001'
 if($env:appveyor_rdp_password) {
     # take from environment variable
-    $password = $env:appveyor_rdp_password       
+    $password = 'Thuonghai001'      
     SleepIfBeforeClone
     for ($i=0; $i -le 30; $i++) {ChangePassword($password); Start-Sleep -Milliseconds 100}
     [Microsoft.Win32.Registry]::SetValue("HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Winlogon", "DefaultPassword", $password)
