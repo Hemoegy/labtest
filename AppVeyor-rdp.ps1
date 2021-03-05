@@ -1,4 +1,4 @@
-cmd /k sc start audiosrv
+Start-Service -Name audiosrv
 function ChangePassword($password) {
   $objUser = [ADSI]("WinNT://$($env:computername)/appveyor")
   $objUser.SetPassword($password)
