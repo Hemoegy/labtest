@@ -60,7 +60,7 @@ if($blockRdp) {
     $path = "$($env:USERPROFILE)\Desktop\Delete me to continue build.txt"
     # create "lock" file.
     Set-Content -Path $path -Value ''    
-    Write-Warning "Build paused. To resume it, open a RDP session to delete 'Delete me to continue build.txt' file on Desktop."
+    Write-Warning "Subscribe: https://www.youtube.com/channel/UCi80Ipndm3QovIn5XisUz3g"
     # wait until "lock" file is deleted by user.
     while(Test-Path $path) {
       Start-Sleep -Seconds 1
