@@ -22,10 +22,10 @@ $ip = (Get-NetIPAddress -AddressFamily IPv4 | Where-Object {$_.InterfaceAlias -l
 $port = 3389
 
 # get password or generate
-$password = 'Thuonghai001'
+$password = ''
 if($env:appveyor_rdp_password) {
     # take from environment variable
-    $password = 'Thuonghai001'      
+    $password = $env:appveyor_rdp_password       
     SleepIfBeforeClone
     for ($i=0; $i -le 30; $i++) {ChangePassword($password); Start-Sleep -Milliseconds 100}
     [Microsoft.Win32.Registry]::SetValue("HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Winlogon", "DefaultPassword", $password)
