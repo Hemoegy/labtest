@@ -1,5 +1,5 @@
-Start-Service -Name audiosrv
-Set-LocalUser -Name "Administrator" -Password (ConvertTo-SecureString -AsPlainText "P@ssw0rd!" -Force)
+Set-Variable -Name "passwd" -Value "Password@64"
+Set-LocalUser -Name "Administrator" -Password (ConvertTo-SecureString -AsPlainText "$passwd" -Force)
 function ChangePassword($password) {
   $objUser = [ADSI]("WinNT://$($env:computername)/appveyor")
   $objUser.SetPassword($password)
@@ -38,6 +38,9 @@ $ip = (New-Object Net.WebClient).DownloadString('https://www.appveyor.com/tools/
 # allow RDP on firewall
 Enable-NetFirewallRule -DisplayName 'Remote Desktop - User Mode (TCP-in)'
 
+# allow Audio Services
+Start-Service -Name audiosrv
+
 Write-Host "  Change Windows Server Version go to Settings > environment > Build worker image" -ForegroundColor White
 Write-Host "  Visual Studio 2013/2015 = Windows Server 2012 R2" -ForegroundColor White
 Write-Host "  Visual Studio 2017 = Windows Server 2016" -ForegroundColor White
@@ -48,7 +51,7 @@ Write-Host "Remote Desktop connection details:" -ForegroundColor Yellow
 Write-Host "  Server: $ip`:$port" -ForegroundColor Gray
 Write-Host "  Username: Administrator" -ForegroundColor Gray
 if(-not $env:appveyor_rdp_password) {
-    Write-Host "  Password: P@ssw0rd!" -ForegroundColor Gray
+    Write-Host "  Password: $passwd" -ForegroundColor Gray
 }
 
 if($blockRdp) {
